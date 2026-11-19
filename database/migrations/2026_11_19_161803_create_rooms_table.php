@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('rooms', function (Blueprint $table) {
+            $table->id();
+            $table->string('room_number')->unique();
+            $table->string('room_type'); // Ekonomis, Standard, Premium
+            $table->integer('floor');
+            $table->string('room_size'); // e.g., "9 m²"
+            $table->decimal('monthly_price', 12, 2);
+            $table->text('facilities');
+            $table->text('description');
+            $table->enum('availability_status', ['Tersedia', 'Terisi'])->default('Tersedia');
+            $table->string('image')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('rooms');
+    }
+};
