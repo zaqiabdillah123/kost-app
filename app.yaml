@@ -1,0 +1,14 @@
+kind: wasmer.io/App.v0
+name: kost-boongan
+owner: mhdzaqiabdillah22
+package: .
+locality:
+  regions:
+    - fr-roub1
+capabilities:
+  database:
+    engine: mysql
+env:
+  APP_ENV: production
+  APP_DEBUG: "false"
+  DB_CONNECTION: mysql
