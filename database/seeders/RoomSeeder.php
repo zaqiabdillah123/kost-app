@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Room;
+use Illuminate\Database\Seeder;
 
 class RoomSeeder extends Seeder
 {
@@ -22,7 +22,7 @@ class RoomSeeder extends Seeder
                 'facilities' => 'WiFi, AC, tempat tidur, meja belajar, lemari',
                 'description' => 'Kamar ekonomis yang cocok untuk mahasiswa atau penghuni dengan kebutuhan tempat tinggal sederhana.',
                 'availability_status' => 'Tersedia',
-                'image' => null,
+                'image' => 'images/rooms/700.jpg',
             ],
             [
                 'room_number' => 'K102',
@@ -33,7 +33,7 @@ class RoomSeeder extends Seeder
                 'facilities' => 'WiFi, AC, tempat tidur, meja belajar, lemari',
                 'description' => 'Kamar ekonomis yang cocok untuk mahasiswa atau penghuni dengan kebutuhan tempat tinggal sederhana.',
                 'availability_status' => 'Terisi',
-                'image' => null,
+                'image' => 'images/rooms/700.jpg',
             ],
             [
                 'room_number' => 'K103',
@@ -44,7 +44,7 @@ class RoomSeeder extends Seeder
                 'facilities' => 'WiFi, AC, tempat tidur, meja belajar, lemari',
                 'description' => 'Kamar ekonomis yang cocok untuk mahasiswa atau penghuni dengan kebutuhan tempat tinggal sederhana.',
                 'availability_status' => 'Tersedia',
-                'image' => null,
+                'image' => 'images/rooms/700.jpg',
             ],
             [
                 'room_number' => 'K201',
@@ -55,7 +55,7 @@ class RoomSeeder extends Seeder
                 'facilities' => 'WiFi, AC, tempat tidur, meja belajar, lemari, ruang kamar lebih luas',
                 'description' => 'Kamar dengan ruang lebih lega untuk menunjang aktivitas belajar, bekerja, dan beristirahat.',
                 'availability_status' => 'Tersedia',
-                'image' => null,
+                'image' => 'images/rooms/900.jpg',
             ],
             [
                 'room_number' => 'K202',
@@ -66,7 +66,7 @@ class RoomSeeder extends Seeder
                 'facilities' => 'WiFi, AC, tempat tidur, meja belajar, lemari, ruang kamar lebih luas',
                 'description' => 'Kamar dengan ruang lebih lega untuk menunjang aktivitas belajar, bekerja, dan beristirahat.',
                 'availability_status' => 'Tersedia',
-                'image' => null,
+                'image' => 'images/rooms/900.jpg',
             ],
             [
                 'room_number' => 'K203',
@@ -77,7 +77,7 @@ class RoomSeeder extends Seeder
                 'facilities' => 'WiFi, AC, tempat tidur, meja belajar, lemari, ruang kamar lebih luas',
                 'description' => 'Kamar dengan ruang lebih lega untuk menunjang aktivitas belajar, bekerja, dan beristirahat.',
                 'availability_status' => 'Terisi',
-                'image' => null,
+                'image' => 'images/rooms/900.jpg',
             ],
             [
                 'room_number' => 'K301',
@@ -88,7 +88,7 @@ class RoomSeeder extends Seeder
                 'facilities' => 'WiFi, AC, tempat tidur, meja belajar, lemari, area ruangan yang lebih luas',
                 'description' => 'Kamar dengan ukuran lebih besar dan kenyamanan ekstra untuk penghuni yang menginginkan ruang lebih luas.',
                 'availability_status' => 'Tersedia',
-                'image' => null,
+                'image' => 'images/rooms/1500.jpg',
             ],
             [
                 'room_number' => 'K302',
@@ -99,7 +99,7 @@ class RoomSeeder extends Seeder
                 'facilities' => 'WiFi, AC, tempat tidur, meja belajar, lemari, area ruangan yang lebih luas',
                 'description' => 'Kamar dengan ukuran lebih besar dan kenyamanan ekstra untuk penghuni yang menginginkan ruang lebih luas.',
                 'availability_status' => 'Terisi',
-                'image' => null,
+                'image' => 'images/rooms/1500.jpg',
             ],
         ];
 
