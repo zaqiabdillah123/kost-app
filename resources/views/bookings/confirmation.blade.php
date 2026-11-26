@@ -78,7 +78,7 @@
                             $message .= "- Tanggal Masuk: {$booking->move_in_date->format('d F Y')}\n";
                             $message .= "- Status: {$booking->booking_status}\n\n";
                             $message .= "Mohon konfirmasi dan informasi lebih lanjut. Terima kasih.";
-                            $whatsappUrl = "https://wa.me/6281234567890?text=" . urlencode($message);
+                            $whatsappUrl = "https://wa.me/62895337264630?text=" . urlencode($message);
                         @endphp
 
                         <div class="d-grid gap-2">

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Booking;
 use App\Models\Room;
 use App\Models\Tenant;
-use App\Models\Booking;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rule;
 
 class BookingController extends Controller
 {
@@ -15,7 +14,7 @@ class BookingController extends Controller
     {
         $room = Room::findOrFail($roomId);
 
-        if (!$room->isAvailable()) {
+        if (! $room->isAvailable()) {
             return redirect()->route('rooms.index')
                 ->with('error', 'Kamar ini tidak tersedia untuk disewa.');
         }
@@ -35,7 +34,7 @@ class BookingController extends Controller
 
         $room = Room::findOrFail($request->room_id);
 
-        if (!$room->isAvailable()) {
+        if (! $room->isAvailable()) {
             return back()->withErrors(['room_id' => 'Kamar ini sudah tidak tersedia.'])->withInput();
         }
 
@@ -59,18 +58,25 @@ class BookingController extends Controller
 
             DB::commit();
 
+            session(['booking_confirmation_id' => $booking->id]);
+
             return redirect()->route('bookings.confirmation', $booking->id)
                 ->with('success', 'Pengajuan sewa berhasil dikirim.');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withErrors(['error' => 'Terjadi kesalahan: ' . $e->getMessage()])->withInput();
+            report($e);
+
+            return back()->withErrors(['error' => 'Terjadi kesalahan. Silakan coba lagi.'])->withInput();
         }
     }
 
     public function confirmation($id)
     {
+        abort_unless(session('booking_confirmation_id') == $id, 404);
+
         $booking = Booking::with(['tenant', 'room'])->findOrFail($id);
+
         return view('bookings.confirmation', compact('booking'));
     }
 }

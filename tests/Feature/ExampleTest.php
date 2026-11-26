@@ -77,6 +77,7 @@ class ExampleTest extends TestCase
 
         $this->get('/pengajuan/1')
             ->assertOk()
-            ->assertSee('#BJ000001');
+            ->assertSee('#BJ000001')
+            ->assertSee('wa.me/62895337264630', false);
     }
 }

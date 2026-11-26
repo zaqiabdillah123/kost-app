@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Room;
+use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
@@ -22,13 +22,15 @@ class RoomController extends Controller
         }
 
         $rooms = $query->orderBy('floor')->orderBy('room_number')->get();
+        $floors = Room::query()->distinct()->orderBy('floor')->pluck('floor');
 
-        return view('rooms.index', compact('rooms'));
+        return view('rooms.index', compact('rooms', 'floors'));
     }
 
     public function show($id)
     {
         $room = Room::findOrFail($id);
+
         return view('rooms.show', compact('room'));
     }
 }

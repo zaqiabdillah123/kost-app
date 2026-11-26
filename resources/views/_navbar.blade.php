@@ -8,5 +8,12 @@
                     </svg>
                     <span class="brand-name">Kost Boongan</span>
                 </a>
+                <div class="ms-auto d-flex align-items-center gap-2">
+                    @auth
+                        <a href="{{ route('admin.rooms.index') }}" class="btn btn-outline-pill">Dashboard Admin</a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-outline-pill">Login Admin</a>
+                    @endauth
+                </div>
             </nav>
         </header>

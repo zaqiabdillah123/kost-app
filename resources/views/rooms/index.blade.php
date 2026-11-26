@@ -40,9 +40,9 @@
                                 <label for="floor" class="form-label mb-1 small fw-semibold">Lantai</label>
                                 <select id="floor" class="form-select" onchange="applyRoomFilter(this, 'floor')">
                                     <option value="">Semua Lantai</option>
-                                    <option value="1" {{ request('floor') == '1' ? 'selected' : '' }}>Lantai 1</option>
-                                    <option value="2" {{ request('floor') == '2' ? 'selected' : '' }}>Lantai 2</option>
-                                    <option value="3" {{ request('floor') == '3' ? 'selected' : '' }}>Lantai 3</option>
+                                    @foreach($floors as $floor)
+                                        <option value="{{ $floor }}" {{ request('floor') == $floor ? 'selected' : '' }}>Lantai {{ $floor }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
