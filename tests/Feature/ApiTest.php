@@ -70,6 +70,21 @@ class ApiTest extends TestCase
             ->assertJsonFragment(['booking_status' => 'Dikonfirmasi']);
     }
 
+    public function test_admin_can_access_bookings_api_after_login(): void
+    {
+        $user = User::factory()->create([
+            'is_admin' => true,
+            'password' => bcrypt('password'),
+        ]);
+
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ])->assertRedirect();
+
+        $this->getJson('/api/bookings')->assertOk();
+    }
+
     public function test_guest_cannot_access_bookings_api(): void
     {
         $this->getJson('/api/bookings')->assertUnauthorized();
