@@ -9,6 +9,8 @@ config = laravel_config(
     composer_enable = True,
     composer_build_script = "post-update-cmd",
     php_version = "8.4",
+    # XLSX export needs 64-bit crc32; PHPix 32-bit returns a float.
+    php_architecture = "64-bit",
     php_public_dir = "public",
 )
 
